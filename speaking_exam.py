@@ -469,7 +469,8 @@ elif  st.session_state["curr_page"] == "speaking__describe_img":
     if "img_path" not in st.session_state.exam_context:
         sample = df.sample(n=1).iloc[0] #시험 초기화
 
-        img_path = sample["img_path"]
+        # img_path = sample["img_path"]
+        img_path = sample["img_path"].replace('\\', '/')  # 경로 수정
         desc = sample["desc"]
 
         st.session_state.exam_context["img_path"] = img_path
@@ -560,7 +561,7 @@ elif  st.session_state["curr_page"] == "speaking__describe_charts":
     if "img_path" not in st.session_state.exam_context:
         sample = df.sample(n=1).iloc[0]
 
-        img_path = sample["img_path"]
+        img_path = sample["img_path"].replace('\\', '/')
         desc = sample["desc"]
 
         st.session_state.exam_context["img_path"] = img_path
